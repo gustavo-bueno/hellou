@@ -3,4 +3,5 @@ export type RootStackParamList = {
   EnglishLevel: undefined;
   Interests: undefined;
   Home: undefined;
+  ChatList: undefined;
 };

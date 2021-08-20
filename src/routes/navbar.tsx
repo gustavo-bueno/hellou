@@ -6,6 +6,7 @@ import { Feather, Ionicons } from '@expo/vector-icons';
 import { colors, metrics } from '../styles';
 import HomeScreen from '../screens/HomeScreen';
 import Header from '../components/Header';
+import ChatListScreen from '../screens/ChatListScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -28,7 +29,7 @@ const NavBar: React.FC = () => {
                   color={color}
                 />
               );
-            case 'User':
+            case 'Meus dados':
               return (
                 <Feather name="user" size={metrics.base * 7} color={color} />
               );
@@ -56,10 +57,10 @@ const NavBar: React.FC = () => {
           headerShown: true,
           header: () => <Header showUserPhoto />,
         }}
-        component={HomeScreen}
+        component={ChatListScreen}
       />
       <Tab.Screen
-        name="User"
+        name="Meus dados"
         options={{
           headerShown: true,
           header: () => <Header showUserPhoto />,
