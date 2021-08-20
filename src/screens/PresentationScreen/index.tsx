@@ -37,7 +37,7 @@ const PresentationScreen = () => {
         <ChatAnimation />
         <Content>
           <H0 fontWeight="bold">
-            Encontrar um english language partner nunca foi tão {'\n'}easy.
+            Encontrar um english language partner nunca foi tão easy.
           </H0>
           <SignInButton onPress={() => navigate('EnglishLevel')}>
             <ButtonGradient>

@@ -25,8 +25,9 @@ export const ReadyButton = styled(Button).attrs({
   title: 'Pronto!',
 })`
   position: absolute;
-  bottom: ${-metrics.hp(15)}px;
+  bottom: ${metrics.base}px;
   left: ${metrics.base * 3}px;
+  z-index: 2;
 `;
 
 export const InterestsList = styled(

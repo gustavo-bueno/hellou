@@ -19,7 +19,7 @@ export const Wave = styled(waveSvg).attrs({
   height: metrics.hp(15),
 })`
   position: absolute;
-  bottom: 0px;
+  bottom: -10px;
 `;
 
 export const SignInButton = styled(Ripple).attrs({
@@ -58,11 +58,11 @@ export const ChatAnimation = styled(AnimatedLottieView).attrs({
 })`
   position: absolute;
   right: ${-metrics.hp(10)}px;
-  top: ${-metrics.hp(15)}px;
+  top: ${-metrics.hp(21)}px;
 `;
 
 export const Content = styled.View`
-  height: ${metrics.hp(80)}px;
+  height: ${metrics.hp(77)}px;
 
   justify-content: flex-end;
 `;

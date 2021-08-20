@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Ripple from 'react-native-material-ripple';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import {
   MaterialCommunityIcons,
@@ -13,12 +15,18 @@ import { H1, H2, H3 } from '../../components/Text';
 import { InterestContainer, InterestsList, ReadyButton } from './styles';
 import { metrics } from '../../styles';
 import { Divider } from '../../components/Divider';
+import { RootStackParamList } from '../../@types/routes';
 
 export interface IInterest {
   title: string;
   color: string;
   icon: JSX.Element;
 }
+
+type interestScreenProps = NativeStackNavigationProp<
+  RootStackParamList,
+  'Interests'
+>;
 
 const interests = [
   {
@@ -55,6 +63,7 @@ const interests = [
 
 const InterestsScreen: React.FC = () => {
   const [interestTopics, setInterestTopics] = useState<IInterest[]>([]);
+  const { navigate } = useNavigation<interestScreenProps>();
 
   const addInterest = (interest: IInterest) => {
     const currentInterests = [...interestTopics];
@@ -91,7 +100,7 @@ const InterestsScreen: React.FC = () => {
   const hasAtLeastAInterestSelected = interestTopics.length === 0;
 
   return (
-    <Container style={{ position: 'relative' }}>
+    <Container style={{ position: 'relative', flex: 1 }}>
       <H1 fontWeight="medium">
         Opa, estamos quase lá! Escolhe aqui, quais são seus interesses?
       </H1>
@@ -109,7 +118,10 @@ const InterestsScreen: React.FC = () => {
         data={interests}
         ItemSeparatorComponent={() => <Divider />}
       />
-      <ReadyButton disabled={hasAtLeastAInterestSelected} />
+      <ReadyButton
+        onPress={() => navigate('Home')}
+        disabled={hasAtLeastAInterestSelected}
+      />
     </Container>
   );
 };

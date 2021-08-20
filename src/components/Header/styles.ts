@@ -13,10 +13,3 @@ export const Container = styled.View`
   justify-content: space-between;
   align-items: flex-end;
 `;
-
-export const UserPhoto = styled(Image)`
-  height: ${metrics.hp(6)}px;
-  width: ${metrics.hp(6)}px;
-
-  border-radius: ${metrics.hp(3)}px;
-`;

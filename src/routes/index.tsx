@@ -6,8 +6,10 @@ import Header from '../components/Header';
 import EnglishLevelScreen from '../screens/EnglishLevelScreen';
 import PresentationScreen from '../screens/PresentationScreen';
 import InterestsScreen from '../screens/InterestsScreen';
+import HomeScreen from '../screens/HomeScreen';
 
 import { colors } from '../styles';
+import NavBar from './navbar';
 
 const Stack = createNativeStackNavigator();
 
@@ -45,6 +47,11 @@ const Routes: React.FC = () => (
         }}
         name="Interests"
         component={InterestsScreen}
+      />
+      <Stack.Screen
+        name="Home"
+        component={NavBar}
+        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   </NavigationContainer>

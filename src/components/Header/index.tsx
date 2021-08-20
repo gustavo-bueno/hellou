@@ -1,7 +1,8 @@
 import React from 'react';
 import Hellou from '../../../assets/hellou.svg';
+import { UserPhoto } from '../UserPhoto';
 
-import { Container, UserPhoto } from './styles';
+import { Container } from './styles';
 
 const Header = ({ showUserPhoto = false }: { showUserPhoto?: boolean }) => {
   return (
