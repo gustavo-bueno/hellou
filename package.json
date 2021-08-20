@@ -10,12 +10,17 @@
   "dependencies": {
     "@expo-google-fonts/poppins": "^0.2.0",
     "@expo/metro-config": "^0.1.82",
+    "@expo/vector-icons": "^12.0.5",
     "expo": "~42.0.1",
+    "expo-linear-gradient": "~9.2.0",
     "expo-status-bar": "~1.0.4",
+    "lottie-react-native": "4.0.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
+    "react-native-material-ripple": "^0.9.1",
     "react-native-responsive-screen": "^1.4.2",
+    "react-native-svg": "^12.1.1",
     "react-native-svg-transformer": "^0.14.3",
     "react-native-web": "~0.13.12",
     "styled-components": "^5.3.0"
@@ -24,6 +29,7 @@
     "@babel/core": "^7.9.0",
     "@types/react": "~16.9.35",
     "@types/react-native": "~0.63.2",
+    "@types/react-native-material-ripple": "^0.9.2",
     "@types/styled-components": "^5.1.12",
     "@types/styled-components-react-native": "^5.1.1",
     "typescript": "~4.0.0"
