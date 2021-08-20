@@ -80,7 +80,7 @@ const EnglishLevelScreen: React.FC = () => {
       <H3 color="grey">B - intermediário</H3>
       <H3 color="grey">C - avançado</H3>
       <Button
-        onPress={() => navigate('Presentation')}
+        onPress={() => navigate('Interests')}
         style={{ marginVertical: metrics.base * 3 }}
         title="Selecionar nível"
       />

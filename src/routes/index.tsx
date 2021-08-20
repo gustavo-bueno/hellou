@@ -5,6 +5,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Header from '../components/Header';
 import EnglishLevelScreen from '../screens/EnglishLevelScreen';
 import PresentationScreen from '../screens/PresentationScreen';
+import InterestsScreen from '../screens/InterestsScreen';
+
 import { colors } from '../styles';
 
 const Stack = createNativeStackNavigator();
@@ -35,6 +37,14 @@ const Routes: React.FC = () => (
         }}
         name="EnglishLevel"
         component={EnglishLevelScreen}
+      />
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          header: () => <Header />,
+        }}
+        name="Interests"
+        component={InterestsScreen}
       />
     </Stack.Navigator>
   </NavigationContainer>
