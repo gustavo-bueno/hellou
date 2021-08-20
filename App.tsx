@@ -7,8 +7,7 @@ import {
   Poppins_500Medium,
   Poppins_700Bold,
 } from '@expo-google-fonts/poppins';
-import PresentationScreen from './src/screens/PresentationScreen';
-import EnglishLevelScreen from './src/screens/EnglishLevelScreen';
+import Routes from './src/routes';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -21,5 +20,5 @@ export default function App() {
     return <View />;
   }
 
-  return <EnglishLevelScreen />;
+  return <Routes />;
 }

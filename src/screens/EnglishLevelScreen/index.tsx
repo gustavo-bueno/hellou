@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-import { FlatList, View } from 'react-native';
-import Header from '../../components/Header';
+import { FlatList, Linking } from 'react-native';
+import Ripple from 'react-native-material-ripple';
+
+import { RootStackParamList } from '../../@types/routes';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+
 import { Container } from '../../components/Container';
 import { H1, H2, H3 } from '../../components/Text';
-import { metrics } from '../../styles';
+import Button from '../../components/Button';
 
+import { metrics } from '../../styles';
 import {
   DotButton,
   DotContainer,
@@ -12,17 +17,23 @@ import {
   ProgressContainer,
   TextLevel,
 } from './styles';
-import Button from '../../components/Button';
+import { useNavigation } from '@react-navigation/native';
+
+type englishLevelScreenProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'EnglishLevel'
+>;
 
 const englishLevels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
-const DOT_SPACING = 20;
+const DOT_SPACING = 20.1;
 
 const EnglishLevelScreen: React.FC = () => {
   const [englishLevel, setEnglishLevel] = useState({
     level: 'A1',
     index: 0,
-    progressWidth: DOT_SPACING,
+    progressWidth: 0,
   });
+  const { navigate } = useNavigation<englishLevelScreenProp>();
 
   const renderItem = ({ item, index }: { item: string; index: number }) => {
     const progressWidth = DOT_SPACING * index;
@@ -45,37 +56,46 @@ const EnglishLevelScreen: React.FC = () => {
   };
 
   return (
-    <View>
-      <Header />
-      <Container>
-        <H1 fontWeight="medium">
-          Olá, Gustavo Carvalho! Seja bem vindo (a) ao hellou!
-        </H1>
-        <H2 color="grey">Para começarmos, qual o seu nível?</H2>
-        <TextLevel>{englishLevel.level}</TextLevel>
-        <ProgressContainer>
-          <ProgressBar progress={englishLevel.progressWidth} />
-        </ProgressContainer>
-        <FlatList
-          horizontal
-          style={{ width: '100%' }}
-          contentContainerStyle={{
-            flex: 1,
-            justifyContent: 'space-between',
-          }}
-          renderItem={renderItem}
-          data={englishLevels}
-          keyExtractor={(_, idx) => idx.toString()}
-        />
-        <H3 color="grey">A - iniciante</H3>
-        <H3 color="grey">B - intermediário</H3>
-        <H3 color="grey">C - avançado</H3>
-        <Button
-          style={{ marginTop: metrics.base * 3 }}
-          title="Selecionar nível"
-        />
-      </Container>
-    </View>
+    <Container>
+      <H1 fontWeight="medium">
+        Olá, Gustavo Carvalho! Seja bem vindo (a) ao hellou!
+      </H1>
+      <H2 color="grey">Para começarmos, qual o seu nível?</H2>
+      <TextLevel>{englishLevel.level}</TextLevel>
+      <ProgressContainer>
+        <ProgressBar progress={englishLevel.progressWidth} />
+      </ProgressContainer>
+      <FlatList
+        horizontal
+        style={{ width: '101.5%' }}
+        contentContainerStyle={{
+          flex: 1,
+          justifyContent: 'space-between',
+        }}
+        renderItem={renderItem}
+        data={englishLevels}
+        keyExtractor={(_, idx) => idx.toString()}
+      />
+      <H3 color="grey">A - iniciante</H3>
+      <H3 color="grey">B - intermediário</H3>
+      <H3 color="grey">C - avançado</H3>
+      <Button
+        onPress={() => navigate('Presentation')}
+        style={{ marginVertical: metrics.base * 3 }}
+        title="Selecionar nível"
+      />
+      <Ripple
+        onPress={() =>
+          Linking.openURL(
+            'https://www.cambridgeenglish.org/br/test-your-english/'
+          )
+        }
+      >
+        <H3 color="purple" style={{ textDecorationLine: 'underline' }}>
+          Está com dúvida sobre seu nivelamento?
+        </H3>
+      </Ripple>
+    </Container>
   );
 };
 

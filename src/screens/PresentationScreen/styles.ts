@@ -12,7 +12,6 @@ export const Container = styled.View`
 
   padding-left: ${metrics.base * 3}px;
   padding-right: ${metrics.base * 3}px;
-  padding-top: ${metrics.hp(5)}px;
 `;
 
 export const Wave = styled(waveSvg).attrs({
