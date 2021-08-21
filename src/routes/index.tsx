@@ -10,6 +10,7 @@ import HomeScreen from '../screens/HomeScreen';
 
 import { colors } from '../styles';
 import NavBar from './navbar';
+import ChatScreen from '../screens/ChatScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -51,6 +52,11 @@ const Routes: React.FC = () => (
       <Stack.Screen
         name="Home"
         component={NavBar}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="ChatDetail"
+        component={ChatScreen}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
