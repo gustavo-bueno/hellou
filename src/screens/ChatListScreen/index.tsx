@@ -9,6 +9,7 @@ import { Container } from '../../components/Container';
 import { Divider } from '../../components/Divider';
 import { H1 } from '../../components/Text';
 import UserCard from '../../components/UserCard';
+import { IUser } from '../../models/user.model';
 
 type chatListScreenProps = NativeStackNavigationProp<
   RootStackParamList,
@@ -16,15 +17,20 @@ type chatListScreenProps = NativeStackNavigationProp<
 >;
 
 const data = [
-  { username: 'Gustavo', photo: '' },
-  { username: 'Gustavo', photo: '' },
-  { username: 'Gustavo', photo: '' },
+  {
+    id: '1',
+    name: 'Gustavo',
+    photo: '',
+    description: 'Boa tarde',
+    englishLevel: 'C1',
+    interests: [{ title: 'Esportes' }],
+  },
 ];
 
 const ChatListScreen = () => {
   const { navigate } = useNavigation<chatListScreenProps>();
 
-  const renderItem = ({ item }: any) => (
+  const renderItem = ({ item }: { item: IUser }) => (
     <Ripple onPress={() => navigate('ChatDetail')}>
       <UserCard />
     </Ripple>

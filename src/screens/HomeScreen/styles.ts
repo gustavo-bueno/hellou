@@ -1,6 +1,7 @@
 import { Image } from 'react-native';
+import Ripple from 'react-native-material-ripple';
 import styled from 'styled-components/native';
-import { colors, metrics } from '../../styles';
+import { metrics } from '../../styles';
 
 interface BannerContainerProps {
   color: string;
@@ -27,4 +28,25 @@ export const BannerImage = styled(Image)`
   position: absolute;
   bottom: 0;
   left: ${metrics.base * 2}px;
+`;
+
+export const InterestButton = styled(Ripple).attrs({
+  rippleContainerBorderRadius: metrics.hp(5),
+})<BannerContainerProps>`
+  height: ${metrics.hp(8)}px;
+  width: ${metrics.hp(8)}px;
+
+  border-radius: ${metrics.hp(5)}px;
+
+  justify-content: center;
+  align-items: center;
+
+  background-color: ${(props) => props.color};
+
+  margin-left: ${metrics.base * 2}px;
+  margin-right: ${metrics.base * 2}px;
+`;
+
+export const InterestButtonContainer = styled.View`
+  flex-direction: column;
 `;

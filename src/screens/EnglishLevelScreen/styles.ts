@@ -1,4 +1,5 @@
 import Ripple from 'react-native-material-ripple';
+import Animated from 'react-native-reanimated';
 import styled from 'styled-components/native';
 
 import { H1 } from '../../components/Text';
@@ -6,10 +7,6 @@ import { colors, metrics } from '../../styles';
 
 interface DotButtonProps {
   achieved: boolean;
-}
-
-interface ProgressBarProps {
-  progress: number;
 }
 
 export const TextLevel = styled(H1).attrs({
@@ -51,10 +48,9 @@ export const ProgressContainer = styled.View`
   margin-bottom: ${-metrics.hp(2)}px;
 `;
 
-export const ProgressBar = styled.View<ProgressBarProps>`
+export const ProgressBar = styled(Animated.View)`
   background-color: ${colors.purple};
 
-  width: ${(props) => props.progress}%;
   height: ${metrics.base * 3}px;
 
   border-radius: ${metrics.borderRadius}px;

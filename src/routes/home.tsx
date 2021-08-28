@@ -1,14 +1,19 @@
 import React from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { Feather, Ionicons } from '@expo/vector-icons';
+import { Feather, Ionicons, AntDesign } from '@expo/vector-icons';
 
-import { colors, metrics } from '../styles';
-import HomeScreen from '../screens/HomeScreen';
-import Header from '../components/Header';
+import ChatScreen from '../screens/ChatScreen';
 import ChatListScreen from '../screens/ChatListScreen';
+import HomeScreen from '../screens/HomeScreen';
+import UserScreen from '../screens/UserScreen';
+import Header from '../components/Header';
+import { colors, metrics } from '../styles';
 
 const Tab = createBottomTabNavigator();
+
+const Stack = createNativeStackNavigator();
 
 const NavBar: React.FC = () => {
   return (
@@ -19,7 +24,7 @@ const NavBar: React.FC = () => {
           switch (route.name) {
             case 'Home':
               return (
-                <Feather name="home" size={metrics.base * 7} color={color} />
+                <AntDesign name="home" size={metrics.base * 7} color={color} />
               );
             case 'Chat':
               return (
@@ -62,13 +67,27 @@ const NavBar: React.FC = () => {
       <Tab.Screen
         name="Meus dados"
         options={{
-          headerShown: true,
-          header: () => <Header showUserPhoto />,
+          headerShown: false,
         }}
-        component={HomeScreen}
+        component={UserScreen}
       />
     </Tab.Navigator>
   );
 };
 
-export default NavBar;
+const Home: React.FC = () => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name="NavBar"
+      component={NavBar}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="ChatDetail"
+      component={ChatScreen}
+      options={{ headerShown: false }}
+    />
+  </Stack.Navigator>
+);
+
+export default Home;

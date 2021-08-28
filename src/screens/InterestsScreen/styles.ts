@@ -1,8 +1,8 @@
 import { FlatList } from 'react-native';
 import styled from 'styled-components/native';
-import { IInterest } from '.';
 
 import Button from '../../components/Button';
+import { IInterest } from '../../models/interest.model';
 import { metrics } from '../../styles';
 
 interface InterestContainerProps {

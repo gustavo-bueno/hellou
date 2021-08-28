@@ -1,5 +1,4 @@
 import React from 'react';
-import { View } from 'react-native';
 
 import {
   useFonts,
@@ -7,6 +6,9 @@ import {
   Poppins_500Medium,
   Poppins_700Bold,
 } from '@expo-google-fonts/poppins';
+
+import { UserProvider } from './src/contexts/userContext';
+import SplashScreen from './src/screens/SplashScreen';
 import Routes from './src/routes';
 
 export default function App() {
@@ -17,8 +19,12 @@ export default function App() {
   });
 
   if (!fontsLoaded) {
-    return <View />;
+    return <SplashScreen />;
   }
 
-  return <Routes />;
+  return (
+    <UserProvider>
+      <Routes />
+    </UserProvider>
+  );
 }

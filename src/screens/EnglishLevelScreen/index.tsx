@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FlatList, Linking } from 'react-native';
 import Ripple from 'react-native-material-ripple';
 
@@ -18,6 +18,11 @@ import {
   TextLevel,
 } from './styles';
 import { useNavigation } from '@react-navigation/native';
+import {
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated';
 
 type englishLevelScreenProp = NativeStackNavigationProp<
   RootStackParamList,
@@ -34,6 +39,7 @@ const EnglishLevelScreen: React.FC = () => {
     progressWidth: 0,
   });
   const { navigate } = useNavigation<englishLevelScreenProp>();
+  const englishLevelWidth = useSharedValue(0);
 
   const renderItem = ({ item, index }: { item: string; index: number }) => {
     const progressWidth = DOT_SPACING * index;
@@ -55,6 +61,18 @@ const EnglishLevelScreen: React.FC = () => {
     );
   };
 
+  useEffect(() => {
+    englishLevelWidth.value = withTiming(`${englishLevel.progressWidth}%`, {
+      duration: 300,
+    });
+  }, [englishLevel.progressWidth]);
+
+  const animatedStyles = useAnimatedStyle(() => {
+    return {
+      width: englishLevelWidth.value,
+    };
+  });
+
   return (
     <Container>
       <H1 fontWeight="medium">
@@ -63,7 +81,7 @@ const EnglishLevelScreen: React.FC = () => {
       <H2 color="grey">Para começarmos, qual o seu nível?</H2>
       <TextLevel>{englishLevel.level}</TextLevel>
       <ProgressContainer>
-        <ProgressBar progress={englishLevel.progressWidth} />
+        <ProgressBar style={animatedStyles} />
       </ProgressContainer>
       <FlatList
         horizontal
