@@ -10,6 +10,8 @@ import HomeScreen from '../screens/HomeScreen';
 import UserScreen from '../screens/UserScreen';
 import Header from '../components/Header';
 import { colors, metrics } from '../styles';
+import PartnerScreen from '../screens/PartnerScreen';
+import PartnerListScreen from '../screens/PartnerListScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -86,6 +88,19 @@ const Home: React.FC = () => (
       name="ChatDetail"
       component={ChatScreen}
       options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="Partner"
+      component={PartnerScreen}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="PartnerList"
+      component={PartnerListScreen}
+      options={{
+        headerShown: true,
+        header: () => <Header showUserPhoto />,
+      }}
     />
   </Stack.Navigator>
 );

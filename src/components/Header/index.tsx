@@ -11,7 +11,7 @@ const Header = ({ showUserPhoto = false }: { showUserPhoto?: boolean }) => {
       {showUserPhoto && (
         <UserPhoto
           source={{
-            uri: 'https://www.facebook.com/profile/pic.php?cuid=AYjeZZgTfxNIrbTj03X3_w1Rvz9Kdq98mTVr01FTxWIm0L4teDGDWo4WH1zQDRKQJH30FBBL5NxU2-f3CYHwlnW-TY2jIBGcDEoMdBkVZ1LM_kBp7pbNnKKSPYoepP1bwrqRz03qhNV_JporxYYaOZCaZ203sAGxcEbSUk_Vr5YHp9yplbNRB9CAbXfehPdVGs6GO0dCN6EcQxQf7YlUWw6W&square_px=50',
+            uri: 'https://www.facebook.com/profile/pic.php?cuid=AYgMNipnTP0tfJMX7wcfViOXzwtuT-FrddHOcFPWcPjS7H-Ro26Sw-N4E3FrbZm01dnYhL5G-f2RJGSdWio9vux8TqXUaX9iRK7ODuzruxv2gKn0LnioOZQNGkRKY4skkuSKzc4f3osvNVwIaes1ZbLM-Zj8WaeykDCGg4cDLuEg0WudGOKL1WyS6DHH5uONve6Yuiw8wXJfywc6oIxtjEfBteoMhw58o1Y3Z30Sgp9UPqWxzRzHzSn1jByzkRv14jU&square_px=64',
           }}
         />
       )}

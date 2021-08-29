@@ -1,10 +1,12 @@
 export type RootStackParamList = {
-  Presentation: undefined;
-  EnglishLevel: undefined;
-  Interests: undefined;
-  Description: undefined;
-  Home: undefined;
-  NavBar: undefined;
-  ChatList: undefined;
-  ChatDetail: undefined;
+  Presentation: any;
+  EnglishLevel: any;
+  Interests: any;
+  Description: any;
+  Home: any;
+  NavBar: any;
+  ChatList: any;
+  ChatDetail: any;
+  Partner: any;
+  PartnerList: any;
 };

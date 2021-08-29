@@ -2,6 +2,7 @@ import React from 'react';
 import { FlatList, KeyboardAvoidingView, Platform } from 'react-native';
 
 import { Feather } from '@expo/vector-icons';
+import { useRoute } from '@react-navigation/native';
 
 import {
   Container,
@@ -14,10 +15,7 @@ import {
 import { colors } from '../../styles';
 import { H2 } from '../../components/Text';
 import UserCard from '../../components/UserCard';
-
-const user = {
-  id: 1,
-};
+import { IUser } from '../../models/user.model';
 
 const messages = [
   {
@@ -40,16 +38,21 @@ const messages = [
   },
 ];
 
-const renderMessage = ({ item }: any) => (
-  <UserMessage isReceived={item.user.id !== user.id}>
-    <H2 color="white">{item.content}</H2>
-  </UserMessage>
-);
-
 const ChatScreen: React.FC = () => {
+  const { user } = useRoute()?.params as { user: IUser };
+
+  const renderMessage = ({ item }: any) => {
+    console.log(item.user.id, user.id);
+    return (
+      <UserMessage isReceived={item.user.id === Number(user.id)}>
+        <H2 color="white">{item.content}</H2>
+      </UserMessage>
+    );
+  };
+
   return (
     <Container>
-      <UserCard backButton />
+      <UserCard name={user.name} photo={user.photo} backButton />
       <Content>
         <FlatList
           contentContainerStyle={{ flex: 1, width: '100%' }}

@@ -6,10 +6,8 @@ import Ripple from 'react-native-material-ripple';
 import { RootStackParamList } from '../../@types/routes';
 
 import { Container } from '../../components/Container';
-import { Divider } from '../../components/Divider';
 import { H1 } from '../../components/Text';
-import UserCard from '../../components/UserCard';
-import { IUser } from '../../models/user.model';
+import UserCardList from '../../components/UserCardList';
 
 type chatListScreenProps = NativeStackNavigationProp<
   RootStackParamList,
@@ -20,7 +18,8 @@ const data = [
   {
     id: '1',
     name: 'Gustavo',
-    photo: '',
+    photo:
+      'https://www.facebook.com/profile/pic.php?cuid=AYgMNipnTP0tfJMX7wcfViOXzwtuT-FrddHOcFPWcPjS7H-Ro26Sw-N4E3FrbZm01dnYhL5G-f2RJGSdWio9vux8TqXUaX9iRK7ODuzruxv2gKn0LnioOZQNGkRKY4skkuSKzc4f3osvNVwIaes1ZbLM-Zj8WaeykDCGg4cDLuEg0WudGOKL1WyS6DHH5uONve6Yuiw8wXJfywc6oIxtjEfBteoMhw58o1Y3Z30Sgp9UPqWxzRzHzSn1jByzkRv14jU&square_px=64',
     description: 'Boa tarde',
     englishLevel: 'C1',
     interests: [{ title: 'Esportes' }],
@@ -30,21 +29,14 @@ const data = [
 const ChatListScreen = () => {
   const { navigate } = useNavigation<chatListScreenProps>();
 
-  const renderItem = ({ item }: { item: IUser }) => (
-    <Ripple onPress={() => navigate('ChatDetail')}>
-      <UserCard />
-    </Ripple>
-  );
-
   return (
     <Container>
       <H1 style={{ fontSize: 24 }} fontWeight="bold">
         Conversas
       </H1>
-      <FlatList
-        ItemSeparatorComponent={() => <Divider />}
+      <UserCardList
         data={data}
-        renderItem={renderItem}
+        onPressUserCard={(user) => navigate('ChatDetail', { user })}
       />
     </Container>
   );

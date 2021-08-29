@@ -28,6 +28,10 @@ export const Input = styled.TextInput`
   width: 100%;
 
   border: 1px solid ${colors.grey};
+
+  padding: ${metrics.base * 2}px ${metrics.base * 2}px 0 ${metrics.base * 2}px;
+
+  font-family: 'Poppins_400Regular';
 `;
 
 export const InputContainer = styled.View`

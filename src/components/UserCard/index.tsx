@@ -10,7 +10,7 @@ import { Container } from './styles';
 import { colors, metrics } from '../../styles';
 import { useNavigation } from '@react-navigation/native';
 
-const UserCard = ({ backButton = false }: UserCardProps) => {
+const UserCard = ({ backButton = false, name, photo }: UserCardProps) => {
   const { goBack } = useNavigation();
 
   return (
@@ -22,11 +22,11 @@ const UserCard = ({ backButton = false }: UserCardProps) => {
       )}
       <UserPhoto
         source={{
-          uri: 'https://www.facebook.com/profile/pic.php?cuid=AYjeZZgTfxNIrbTj03X3_w1Rvz9Kdq98mTVr01FTxWIm0L4teDGDWo4WH1zQDRKQJH30FBBL5NxU2-f3CYHwlnW-TY2jIBGcDEoMdBkVZ1LM_kBp7pbNnKKSPYoepP1bwrqRz03qhNV_JporxYYaOZCaZ203sAGxcEbSUk_Vr5YHp9yplbNRB9CAbXfehPdVGs6GO0dCN6EcQxQf7YlUWw6W&square_px=50',
+          uri: photo,
         }}
       />
       <H2 style={{ marginLeft: metrics.base * 2 }} fontWeight="medium">
-        Gustavo Carvalho
+        {name}
       </H2>
     </Container>
   );
