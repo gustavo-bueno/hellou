@@ -1,8 +1,8 @@
-import React from 'react';
-import { H2 } from '../Text';
+import React from "react";
+import { H2 } from "../Text";
 
-import { ButtonProps } from './interfaces';
-import { CustomButton } from './styles';
+import { ButtonProps } from "./interfaces";
+import { CustomButton } from "./styles";
 
 const Button = ({ title, ...rest }: ButtonProps) => {
   return (
